@@ -1,0 +1,83 @@
+[
+  {
+    "number": "01",
+    "model_name": "E01_aircraft",
+    "name": "aircraft",
+    "included": true
+  },
+  {
+    "number": "02",
+    "model_name": "E02_cutout",
+    "name": "cutout",
+    "included": true
+  },
+  {
+    "number": "03",
+    "model_name": "E03_tank-assembly",
+    "name": "tank-assembly",
+    "included": true,
+    "highlights": ["04","05","06","071"]
+  },
+  {
+    "number": "04",
+    "model_name": "E04_tank",
+    "name": "tank",
+    "included": true
+  },
+  {
+    "number": "05",
+    "model_name": "E05_Lshape",
+    "name": "Lshape",
+    "included": true
+  },
+  {
+    "number": "06",
+    "model_name": "E06_hollow",
+    "name": "hollow",
+    "included": true
+  },
+  {
+    "number": "07",
+    "model_name": "E07_bar",
+    "name": "bar",
+    "included": true,
+    "highlights": ["071"]
+  },
+  {
+    "number": "071",
+    "model_name": "E071_bar-only",
+    "name": "bar only",
+    "included": true,
+    "hidden": true
+  },
+  {
+    "number": "08",
+    "model_name": "E08_landing",
+    "name": "landing",
+    "included": true
+  },
+  {
+    "number": "09",
+    "model_name": "E09_propeller",
+    "name": "propeller",
+    "included": true
+  },
+  {
+    "number": "10",
+    "model_name": "E10_wing",
+    "name": "wing",
+    "included": true
+  },
+  {
+    "number": "11",
+    "model_name": "E11_wing-cross",
+    "name": "wing-cross",
+    "included": true
+  },
+  {
+    "number": "12",
+    "model_name": "E12_wing-pallet",
+    "name": "wing-pallet",
+    "included": true
+  }
+]

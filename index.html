@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aero3D: AeroDelft visualisations</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: "Computer Modern Bright", sans-serif;
+            background-color: #232323;
+            color: white;
+	        font-size: 20px;
+        }
+
+        a, a:hover {
+            color: white;
+        }
+
+        .unincluded {
+	        color: red;
+        }
+	</style>
+</head>
+<body>
+<h1></h1>
+<ul>
+</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<h1 class="mt-5">Aero3D: AeroDelft visualisations</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p>Welcome to the AeroDelft visualisations website for the Mechanics of Materials course at the Aerospace Faculty at Delft University of Technology</p>
+		</div>
+		<div class="col-12 mt-3">
+			<h3>Models:</h3>
+			<ul id="model-list">
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+<script src="js/helpers.js"></script>
+<script>
+	function generateHighlights(json, i) {
+		if(json[i].highlights === undefined) {
+			return "";
+		}
+
+		let str = ""
+		for(let highlight of json[i].highlights) {
+			let model = json.find(v => v.number === highlight)
+			str = str + `<li><a href="main.html?model=${json[i].number}&highlight=${model.number}">Highlight ${model.number}: ${formatName(model.name)}</a></li>`
+		}
+		return `<ul>${str}</ul>`;
+	}
+
+	function formatName(name) {
+		return capit_first(name).replace("-", " ");
+	}
+
+	fetch(`config.json`)
+		.then((response) => response.json())
+		.then((json) => {
+			for (let i = 0; i < json.length; i++) {
+				let cls = json[i].included? "included" : "unincluded";
+				let highlights = generateHighlights(json, i);
+				let hidden =  json[i].hidden === true? "hidden": "";
+				$("#model-list").append(
+					`<li ${hidden}><a href="main.html?model=${json[i].number}" class="${cls}">Model ${json[i].number}: ${formatName(json[i].name)}</a></li>${highlights}`);
+			}
+		});
+
+
+</script>
+</html>
