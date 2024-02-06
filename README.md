@@ -2,6 +2,8 @@
 
 This is a library for visualising 3D models from the AeroDelft project for the Materials of Mechanics course at the Aerospace program at Delft University and Technology.
 
+You can view this site on: https://dmjpeeters.github.io/MoMfigures/
+
 # Credits
 
 * **Concept development:** Daniël Peeters, Assistant-professor Aerospace Structures & Materials
